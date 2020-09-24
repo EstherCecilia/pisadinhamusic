@@ -1,0 +1,134 @@
+<html>
+
+<head>
+  <title> </title>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      background-color: #000;
+      perspective: 1000;
+    }
+
+    h1 {
+      color: red;
+    }
+
+    p {
+      color: blue;
+    }
+
+    button {
+      width: 350px;
+      height: 60px;
+      font: inherit;
+      font-size: 30px;
+      appearance: none;
+      -webkit-appearance: none;
+      outline: none;
+      padding: 8px 16px;
+      color: #fafafa;
+      text-shadow: 0 1px 2px hsla(0, 0%, 100%, .15);
+      background-color: green;
+      background-image: linear-gradient(green, green);
+      box-shadow: inset 0 0 2px hsla(0, 0%, 100%, .15);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all .15s ease-out;
+    }
+
+    #flutua {
+      width: 80px;
+      height: 60px;
+      font: inherit;
+      font-size: 30px;
+      appearance: none;
+      -webkit-appearance: none;
+      outline: none;
+      padding: 8px 16px;
+      color: #fafafa;
+      text-shadow: 0 1px 2px hsla(0, 0%, 100%, .15);
+      box-shadow: inset 0 0 2px hsla(0, 0%, 100%, .15);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all .15s ease-out;
+    }
+
+    audio {
+      position: absolute;
+    }
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+
+    #buttonFlutuante {
+      position: absolute;
+      top: 2px;
+      right: 4px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <audio id="my_audio" src="lonely.mp3" loop="loop"></audio>
+  <div id="demo">
+
+
+    <div id="inicio">
+
+      <button type="button" class="btn btn-secondary btn-lg" id="button">Me aperta</button>
+    </div>
+
+    <div id="buttonFlutuante">
+
+      <button type="button" class="btn btn-secondary btn-lg" id="flutua"><img
+          src="https://cdn.onlinewebfonts.com/svg/img_411213.png" alt=""></button>
+    </div>
+
+  </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  var imagens = ["https://media2.giphy.com/media/jzaZ23z45UxK8/200w.webp?cid=ecf05e479hrtvivvzcrkolcixqv2uf8b3vn9645bebvakgsd&rid=200w.webp", "https://media1.giphy.com/media/l3vRlT2k2L35Cnn5C/200.webp?cid=ecf05e472adof9bcc6afmg1roxmup618xtedrmmygto74rjr&rid=200.webp", "https://media0.giphy.com/media/TfKfqjt2i4GIM/200w.webp?cid=ecf05e47potjmjdzgzmyc47oo1siapzcyhoirakghxfzsimc&rid=200w.webp"]
+  var musics = ["lonely.mp3", "monkey.mp3", "diamonds.mp3"]
+  $(function () {
+    $("#dance").hide();
+  });
+
+  $("#button").click(function () {
+    let position = Math.floor(Math.random() * 3);
+    var url = 'url(' + imagens[position] + ')'
+    $("#inicio").hide();
+    $('body').css('background-image', url);
+
+    // $("#my_audio").src();
+    $("#my_audio").get(0).play();
+    $("#my_audio").prop("volume", 0).animate({ volume: 0.4 }, 1000);
+  });
+
+  $("#flutua").click(function () {
+    let position = Math.floor(Math.random() * 3);
+    var url = 'url(' + imagens[position] + ')'
+    $('body').css('background-image', url);
+    $("#my_audio").attr("src", musics[position]);
+
+    // $("#my_audio").src();
+    $("#my_audio").get(0).play();
+    $("#my_audio").prop("volume", 0).animate({ volume: 0.4 }, 1000);
+  });
+</script>
+
+</html>
