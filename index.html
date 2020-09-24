@@ -43,26 +43,13 @@
       transition: all .15s ease-out;
     }
 
-    #flutua {
-      width: 80px;
-      height: 60px;
-      font: inherit;
-      font-size: 30px;
-      appearance: none;
-      -webkit-appearance: none;
-      outline: none;
-      padding: 8px 16px;
-      color: #fafafa;
-      text-shadow: 0 1px 2px hsla(0, 0%, 100%, .15);
-      box-shadow: inset 0 0 2px hsla(0, 0%, 100%, .15);
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all .15s ease-out;
-    }
 
     audio {
       position: absolute;
+    }
+
+    #flutua {
+      cursor: pointer;
     }
 
     img {
@@ -93,8 +80,7 @@
 
     <div id="buttonFlutuante">
 
-      <button type="button" class="btn btn-secondary btn-lg" id="flutua"><img
-          src="https://cdn.onlinewebfonts.com/svg/img_411213.png" alt=""></button>
+      <img id="flutua" src="https://img.icons8.com/clouds/2x/music.png" alt="">
     </div>
 
   </div>
@@ -105,10 +91,11 @@
   var imagens = ["https://media2.giphy.com/media/jzaZ23z45UxK8/200w.webp?cid=ecf05e479hrtvivvzcrkolcixqv2uf8b3vn9645bebvakgsd&rid=200w.webp", "https://media1.giphy.com/media/l3vRlT2k2L35Cnn5C/200.webp?cid=ecf05e472adof9bcc6afmg1roxmup618xtedrmmygto74rjr&rid=200.webp", "https://media0.giphy.com/media/TfKfqjt2i4GIM/200w.webp?cid=ecf05e47potjmjdzgzmyc47oo1siapzcyhoirakghxfzsimc&rid=200w.webp"]
   var musics = ["lonely.mp3", "monkey.mp3", "diamonds.mp3"]
   $(function () {
-    $("#dance").hide();
+    $("#flutua").hide();
   });
 
   $("#button").click(function () {
+    $("#flutua").show();
     let position = Math.floor(Math.random() * 3);
     var url = 'url(' + imagens[position] + ')'
     $("#inicio").hide();
